@@ -1,14 +1,17 @@
 //Important Stuff
+//Leonar & Liwanan
+
 let scene = new THREE.Scene();
 let camera = new THREE.PerspectiveCamera(50, window.innerWidth/ window.innerHeight, 0.1, 1000); 
 let renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
+scene.background = new THREE.Color("#C4E3FF");
 document.body.appendChild(renderer.domElement);  
 
 
 ///HOUSE EXTERIOR///
 ///Floor
-let floorGeometry = new THREE.BoxGeometry( 14.78, -0.05, 13 );
+let floorGeometry = new THREE.BoxGeometry( 14.9, -0.05, 13 );
 let floor = new THREE.MeshLambertMaterial( {color: "#343131"} );
 let cube = new THREE.Mesh(floorGeometry, floor);
 scene.add(cube);
@@ -125,7 +128,7 @@ cube9.rotation.y = 4
 
 ///Big glass
 let bigglassGeometry = new THREE.BoxGeometry( 9,6, 0.04);
-let bigglass = new THREE.MeshLambertMaterial( {color: "white", transparent: true, opacity: 0.3} );
+let bigglass = new THREE.MeshPhongMaterial( {color: "white", transparent: true, opacity: 0.3} );
 let cube10 = new THREE.Mesh(bigglassGeometry, bigglass);
 scene.add(cube10);
 
@@ -148,7 +151,7 @@ cube11.rotation.y = 4
 
 ///Glass small 1
 let glass1Geometry = new THREE.BoxGeometry( 1.2, 5, 0.04);
-let glass1 = new THREE.MeshLambertMaterial( {color: "white", transparent: true, opacity: 0.5} );
+let glass1 = new THREE.MeshPhongMaterial( {color: "white", transparent: true, opacity: 0.5} );
 let cube12 = new THREE.Mesh(glass1Geometry, glass1);
 scene.add(cube12);
 
@@ -160,7 +163,7 @@ cube12.rotation.y = 4
 
 ///Glass small 2
 let glass2Geometry = new THREE.BoxGeometry( 1.2, 5, 0.04);
-let glass2 = new THREE.MeshLambertMaterial( {color: "white", transparent: true, opacity: 0.5} );
+let glass2 = new THREE.MeshPhongMaterial( {color: "white", transparent: true, opacity: 0.5} );
 let cube13 = new THREE.Mesh(glass2Geometry, glass2);
 scene.add(cube13);
 
@@ -172,7 +175,7 @@ cube13.rotation.y = 4
 
 ///Glass med 3
 let glass3Geometry = new THREE.BoxGeometry( 2.4, 4.6, 0.04);
-let glass3 = new THREE.MeshLambertMaterial( {color: "white", transparent: true, opacity: 0.5} );
+let glass3 = new THREE.MeshPhongMaterial( {color: "white", transparent: true, opacity: 0.5} );
 let cube14 = new THREE.Mesh(glass3Geometry, glass3);
 scene.add(cube14);
 
@@ -183,7 +186,7 @@ cube14.rotation.y = 2.4
 
 ///Glass med 4
 let glass4Geometry = new THREE.BoxGeometry( 3, 4.8, 0.04);
-let glass4 = new THREE.MeshLambertMaterial( {color: "white", transparent: true, opacity: 0.5} );
+let glass4 = new THREE.MeshPhongMaterial( {color: "white", transparent: true, opacity: 0.5} );
 let cube15 = new THREE.Mesh(glass4Geometry, glass4);
 scene.add(cube15);
 
@@ -570,12 +573,44 @@ cube53.position.x = 3.8
 cube53.position.z = -14
 cube53.rotation.y = 4
 
+//PLANTS
+let branchGeometry = new THREE.CylinderGeometry(0.2,0.2,5,32);
+let pBranch = new THREE.MeshLambertMaterial({color: "#402D1A"});
+let cylinder5 = new THREE.Mesh(branchGeometry, pBranch);
+scene.add(cylinder5);
+
+cylinder5.position.y = 1.5
+cylinder5.position.x = -8
+cylinder5.position.z = -12
+
+let p1Geometry = new THREE.SphereGeometry(2, 7, 6 );
+let p1 = new THREE.MeshLambertMaterial( {color: "#315432"} );
+let sphere1 = new THREE.Mesh(p1Geometry, p1);
+scene.add(sphere1);
+
+sphere1.position.y = 4
+sphere1.position.x = -8
+sphere1.position.z = -12
+
+
+let p2Geometry = new THREE.BoxGeometry(1, 1.3, 5 );
+let p2 = new THREE.MeshLambertMaterial( {color: "#294229"} );
+let cube54 = new THREE.Mesh(p2Geometry, p2);
+scene.add(cube54);
+
+cube54.position.y = -0.3
+cube54.position.x = 5.87
+cube54.position.z = -5.2
+cube54.rotation.y = 8.7
+
+
+
 
 ///Light
 let light1 = new THREE.AmbientLight( "#FFFFFF" );
 scene.add( light1 );
 
-let light2 = new THREE.PointLight( "#FFFFFF", 0.2, 100);
+let light2 = new THREE.PointLight( "#FFFFFF", 1, 100);
 light2.position.set( 5, 5, 3 );
 scene.add( light2 );
 
